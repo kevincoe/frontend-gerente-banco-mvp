@@ -49,6 +49,7 @@ h1 {
 }
 
 #cliente-form input {
+    
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
@@ -56,6 +57,12 @@ h1 {
     border-radius: 4px;
     width: 100%;
     max-width: 400px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #cliente-form select {

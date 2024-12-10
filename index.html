@@ -16,15 +16,25 @@
         </div>
         <div id="cliente-form" style="display: none;">
             <input type="text" id="nome" placeholder="Nome">
-            <input type="text" id="agencia" placeholder="Agência">
-            <input type="text" id="conta" placeholder="Conta">
-            <input type="text" id="nivel" placeholder="Nível">
+            <input type="number" id="agencia" placeholder="Agência">
+            <input type="number" id="conta" placeholder="Conta">
+
+            <label for="nivel">Nível</label>
+            <select id="nivel">
+                <option value="Bronze">Bronze</option>
+                <option value="Prata">Prata</option>
+                <option value="Ouro">Ouro</option>
+                <option value="Diamante">Diamante</option>
+            </select>
+
+            <label for="produtos">Produtos</label>
             <select id="produtos">
                 <option value="Conta Corrente">Conta Corrente</option>
                 <option value="Conta Poupança">Conta Poupança</option>
                 <option value="Investimentos">Investimentos</option>
                 <option value="Conta Salário">Conta Salário</option>
             </select>
+
             <button id="add-cliente">Adicionar Cliente</button>
         </div>
         <div id="clientes-list" style="display: none;"></div>
