@@ -50,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             await clienteService.adicionarCliente(cliente);
         }
-        renderClientes();
         limparFormulario();
+        mostrarListaClientes();
     };
 
     const limparFormulario = () => {
@@ -60,6 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
         contaInput.value = '';
         nivelInput.value = '';
         produtosInput.value = '';
+    };
+
+    const mostrarTelaInicial = () => {
+        menuInicial.style.display = 'block';
+        clienteForm.style.display = 'none';
+        clientesList.style.display = 'none';
+        voltarButton.style.display = 'none';
+    };
+
+    const mostrarListaClientes = () => {
+        menuInicial.style.display = 'none';
+        clienteForm.style.display = 'none';
+        clientesList.style.display = 'block';
+        voltarButton.style.display = 'block';
+        renderClientes();
     };
 
     window.removerCliente = async (id) => {
@@ -84,13 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addClienteButton.addEventListener('click', adicionarCliente);
 
-    listarClientesButton.addEventListener('click', () => {
-        menuInicial.style.display = 'none';
-        clienteForm.style.display = 'none';
-        clientesList.style.display = 'block';
-        voltarButton.style.display = 'block';
-        renderClientes();
-    });
+    listarClientesButton.addEventListener('click', mostrarListaClientes);
 
     adicionarClienteButton.addEventListener('click', () => {
         menuInicial.style.display = 'none';
@@ -100,10 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     voltarButton.addEventListener('click', () => {
-        menuInicial.style.display = 'block';
-        clienteForm.style.display = 'none';
-        clientesList.style.display = 'none';
-        voltarButton.style.display = 'none';
+        mostrarTelaInicial();
         limparFormulario();
         clienteEditando = null;
         addClienteButton.textContent = 'Adicionar Cliente';
