@@ -1,44 +1,131 @@
-# 💼 Gerente Banco SPA
+# 💼 Frontend Gerente Banco MVP 🚀  
 
-Bem-vindo ao projeto **Gerente Banco SPA**! Este é um MVP (Minimum Viable Product) desenvolvido durante a Sprint 1 do curso de Desenvolvimento Fullstack. O objetivo deste projeto é criar uma aplicação frontend para gerenciar clientes de um banco.
+Este é um MVP (Produto Mínimo Viável) para um sistema de gerenciamento de clientes de um banco. O objetivo é criar uma aplicação frontend que permita listar, adicionar, editar e remover clientes. 🏦  
 
-## 📋 Funcionalidades
+---
 
-- **Listar Clientes**: Veja todos os clientes cadastrados no sistema.
-- **Adicionar Cliente**: Adicione novos clientes ao banco.
-- **Editar Cliente**: Atualize as informações dos clientes existentes.
-- **Remover Cliente**: Remova clientes do banco.
+## 🛠️ Tecnologias Utilizadas  
 
-## 🛠️ Estrutura do Projeto
+- **HTML5** 📄  
+- **CSS3** 🎨  
+- **JavaScript** 🛠️  
 
-A estrutura do projeto é a seguinte:
-css/ styles.css index.html js/ api.js cliente.js clienteService.js main.js README.md
+---
 
-### Descrição dos Arquivos
+## 🗂️ Estrutura do Projeto  
 
-- **css/styles.css**: Contém os estilos CSS para a aplicação.
-- **index.html**: O arquivo HTML principal que estrutura a interface do usuário.
-- **js/api.js**: Define a classe `Api` para interagir com a API backend.
-- **js/cliente.js**: Define a classe `Cliente` que representa um cliente do banco.
-- **js/clienteService.js**: Define a classe `ClienteService` que fornece métodos para gerenciar clientes.
-- **js/main.js**: Contém a lógica principal da aplicação, incluindo manipulação do DOM e eventos.
+```plaintext
+frontend-gerente-banco-mvp/
+├── css/
+│   └── styles.css
+├── index.html
+├── js/
+│   ├── api.js
+│   ├── cliente.js
+│   ├── clienteService.js
+│   └── main.js
+└── README.md
 
-## 🚀 Como Executar o Projeto
+Descrição dos Arquivos
+css/styles.css
+Contém os estilos CSS utilizados na interface da aplicação.
 
-1. Clone o repositório:
-    ```sh
-    git clone https://github.com/seu-usuario/frontend-gerente-banco-mvp.git
-    ```
+index.html
+Arquivo principal que estrutura a interface do usuário.
 
-2. Navegue até o diretório do projeto:
-    ```sh
-    cd frontend-gerente-banco-mvp
-    ```
+js/api.js
+Define a classe Api para interação com o backend.
 
-3. Abra o arquivo `index.html` no seu navegador preferido.
+js/cliente.js
+Define a classe Cliente, representando os clientes no sistema.
 
-## 📚 Tecnologias Utilizadas
+js/clienteService.js
+Contém métodos para gerenciamento dos clientes.
 
-- **HTML5**: Para a estruturação do conteúdo.
-- **CSS3**: Para estilização e layout.
-- **JavaScript**: Para a lógica de negócios e manipulação do DOM.
+js/main.js
+Inclui a lógica principal da aplicação, como manipulação do DOM e eventos.
+
+⚙️ Como Configurar e Executar
+Clone o repositório:
+
+bash
+Copiar código
+git clone https://github.com/seu-usuario/frontend-gerente-banco-mvp.git  
+cd frontend-gerente-banco-mvp  
+Abra o arquivo index.html:
+
+Simplesmente arraste o arquivo para o seu navegador ou utilize o menu "Abrir com".
+
+
+markdown
+Copiar código
+# 💼 Frontend Gerente Banco MVP 🚀  
+
+Este é um MVP (Produto Mínimo Viável) para um sistema de gerenciamento de clientes de um banco. O objetivo é criar uma aplicação frontend que permita listar, adicionar, editar e remover clientes. 🏦  
+
+---
+
+## 🛠️ Tecnologias Utilizadas  
+
+- **HTML5** 📄  
+- **CSS3** 🎨  
+- **JavaScript** 🛠️  
+
+---
+
+## 🗂️ Estrutura do Projeto  
+
+```plaintext
+frontend-gerente-banco-mvp/
+├── css/
+│   └── styles.css
+├── index.html
+├── js/
+│   ├── api.js
+│   ├── cliente.js
+│   ├── clienteService.js
+│   └── main.js
+└── README.md
+Descrição dos Arquivos
+css/styles.css
+Contém os estilos CSS utilizados na interface da aplicação.
+
+index.html
+Arquivo principal que estrutura a interface do usuário.
+
+js/api.js
+Define a classe Api para interação com o backend.
+
+js/cliente.js
+Define a classe Cliente, representando os clientes no sistema.
+
+js/clienteService.js
+Contém métodos para gerenciamento dos clientes.
+
+js/main.js
+Inclui a lógica principal da aplicação, como manipulação do DOM e eventos.
+
+⚙️ Como Configurar e Executar
+Clone o repositório:
+
+bash
+Copiar código
+git clone https://github.com/seu-usuario/frontend-gerente-banco-mvp.git  
+cd frontend-gerente-banco-mvp  
+Abra o arquivo index.html:
+
+Simplesmente arraste o arquivo para o seu navegador ou utilize o menu "Abrir com".
+
+📋 Funcionalidades
+🧑‍💼 Clientes
+Listar Clientes:
+Exibe todos os clientes cadastrados no sistema.
+
+Adicionar Cliente:
+Permite cadastrar novos clientes no banco.
+
+Editar Cliente:
+Atualiza as informações de clientes existentes.
+
+Remover Cliente:
+Exclui clientes do sistema de forma prática.
