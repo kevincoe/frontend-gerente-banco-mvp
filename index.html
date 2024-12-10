@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerente Banco SPA</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Gerenciamento de Clientes</h1>
+        <div id="cliente-form">
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="agencia" placeholder="Agência">
+            <input type="text" id="conta" placeholder="Conta">
+            <input type="text" id="nivel" placeholder="Nível">
+            <input type="text" id="produtos" placeholder="Produtos">
+            <button id="add-cliente">Adicionar Cliente</button>
+        </div>
+        <div id="clientes-list"></div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/cliente.js"></script>
+    <script src="js/clienteService.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
