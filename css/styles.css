@@ -58,6 +58,16 @@ h1 {
     max-width: 400px;
 }
 
+#cliente-form select {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px;
+}
+
 #cliente-form button {
     padding: 10px;
     font-size: 16px;

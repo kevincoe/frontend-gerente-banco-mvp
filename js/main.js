@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const agenciaInput = document.getElementById('agencia');
     const contaInput = document.getElementById('conta');
     const nivelInput = document.getElementById('nivel');
-    const produtosInput = document.getElementById('produtos');
+    const produtosSelect = document.getElementById('produtos');
     const addClienteButton = document.getElementById('add-cliente');
     const clientesList = document.getElementById('clientes-list');
     const menuInicial = document.getElementById('menu-inicial');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             agenciaInput.value,
             contaInput.value,
             nivelInput.value,
-            produtosInput.value
+            produtosSelect.value
         );
         if (clienteEditando) {
             await clienteService.atualizarCliente(clienteEditando, cliente);
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         agenciaInput.value = '';
         contaInput.value = '';
         nivelInput.value = '';
-        produtosInput.value = '';
+        produtosSelect.value = 'Conta Corrente';
     };
 
     const mostrarTelaInicial = () => {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         agenciaInput.value = cliente.agencia;
         contaInput.value = cliente.conta;
         nivelInput.value = cliente.nivel;
-        produtosInput.value = cliente.produtos;
+        produtosSelect.value = cliente.produtos;
         clienteEditando = id;
         addClienteButton.textContent = 'Atualizar Cliente';
         menuInicial.style.display = 'none';
