@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Conta:</strong> ${cliente.conta}</p>
                 <p><strong>Nível:</strong> ${cliente.nivel}</p>
                 <p><strong>Produtos:</strong> ${cliente.produtos}</p>
+                <button class="edit" onclick="editarCliente(${cliente.id})">Editar</button>
                 <button onclick="removerCliente(${cliente.id})">Remover</button>
-                <button onclick="editarCliente(${cliente.id})">Editar</button>
             `;
             clientesList.appendChild(clienteItem);
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const mostrarTelaInicial = () => {
-        menuInicial.style.display = 'block';
+        menuInicial.style.display = 'flex';
         clienteForm.style.display = 'none';
         clientesList.style.display = 'none';
         voltarButton.style.display = 'none';
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clienteEditando = id;
         addClienteButton.textContent = 'Atualizar Cliente';
         menuInicial.style.display = 'none';
-        clienteForm.style.display = 'block';
+        clienteForm.style.display = 'flex';
         clientesList.style.display = 'none';
         voltarButton.style.display = 'block';
     };
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     adicionarClienteButton.addEventListener('click', () => {
         menuInicial.style.display = 'none';
-        clienteForm.style.display = 'block';
+        clienteForm.style.display = 'flex';
         clientesList.style.display = 'none';
         voltarButton.style.display = 'block';
     });
