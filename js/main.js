@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const produtosInput = document.getElementById('produtos');
     const addClienteButton = document.getElementById('add-cliente');
     const clientesList = document.getElementById('clientes-list');
+    const menuInicial = document.getElementById('menu-inicial');
+    const clienteForm = document.getElementById('cliente-form');
+    const listarClientesButton = document.getElementById('listar-clientes');
+    const adicionarClienteButton = document.getElementById('adicionar-cliente');
+    const voltarButton = document.getElementById('voltar');
+
+    let clienteEditando = null;
 
     const renderClientes = async () => {
         const clientes = await clienteService.listarClientes();
@@ -22,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Nível:</strong> ${cliente.nivel}</p>
                 <p><strong>Produtos:</strong> ${cliente.produtos}</p>
                 <button onclick="removerCliente(${cliente.id})">Remover</button>
+                <button onclick="editarCliente(${cliente.id})">Editar</button>
             `;
             clientesList.appendChild(clienteItem);
         });
@@ -35,8 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
             nivelInput.value,
             produtosInput.value
         );
-        await clienteService.adicionarCliente(cliente);
+        if (clienteEditando) {
+            await clienteService.atualizarCliente(clienteEditando, cliente);
+            clienteEditando = null;
+            addClienteButton.textContent = 'Adicionar Cliente';
+        } else {
+            await clienteService.adicionarCliente(cliente);
+        }
         renderClientes();
+        limparFormulario();
+    };
+
+    const limparFormulario = () => {
+        nomeInput.value = '';
+        agenciaInput.value = '';
+        contaInput.value = '';
+        nivelInput.value = '';
+        produtosInput.value = '';
     };
 
     window.removerCliente = async (id) => {
@@ -44,7 +67,45 @@ document.addEventListener('DOMContentLoaded', () => {
         renderClientes();
     };
 
+    window.editarCliente = async (id) => {
+        const cliente = await clienteService.api.getCliente(id);
+        nomeInput.value = cliente.nome;
+        agenciaInput.value = cliente.agencia;
+        contaInput.value = cliente.conta;
+        nivelInput.value = cliente.nivel;
+        produtosInput.value = cliente.produtos;
+        clienteEditando = id;
+        addClienteButton.textContent = 'Atualizar Cliente';
+        menuInicial.style.display = 'none';
+        clienteForm.style.display = 'block';
+        clientesList.style.display = 'none';
+        voltarButton.style.display = 'block';
+    };
+
     addClienteButton.addEventListener('click', adicionarCliente);
 
-    renderClientes();
+    listarClientesButton.addEventListener('click', () => {
+        menuInicial.style.display = 'none';
+        clienteForm.style.display = 'none';
+        clientesList.style.display = 'block';
+        voltarButton.style.display = 'block';
+        renderClientes();
+    });
+
+    adicionarClienteButton.addEventListener('click', () => {
+        menuInicial.style.display = 'none';
+        clienteForm.style.display = 'block';
+        clientesList.style.display = 'none';
+        voltarButton.style.display = 'block';
+    });
+
+    voltarButton.addEventListener('click', () => {
+        menuInicial.style.display = 'block';
+        clienteForm.style.display = 'none';
+        clientesList.style.display = 'none';
+        voltarButton.style.display = 'none';
+        limparFormulario();
+        clienteEditando = null;
+        addClienteButton.textContent = 'Adicionar Cliente';
+    });
 });

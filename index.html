@@ -8,8 +8,13 @@
 </head>
 <body>
     <div id="app">
+        <button id="voltar" style="display: none;">Voltar</button>
         <h1>Gerenciamento de Clientes</h1>
-        <div id="cliente-form">
+        <div id="menu-inicial">
+            <button id="listar-clientes">Listar Clientes</button>
+            <button id="adicionar-cliente">Adicionar Cliente</button>
+        </div>
+        <div id="cliente-form" style="display: none;">
             <input type="text" id="nome" placeholder="Nome">
             <input type="text" id="agencia" placeholder="Agência">
             <input type="text" id="conta" placeholder="Conta">
@@ -17,7 +22,7 @@
             <input type="text" id="produtos" placeholder="Produtos">
             <button id="add-cliente">Adicionar Cliente</button>
         </div>
-        <div id="clientes-list"></div>
+        <div id="clientes-list" style="display: none;"></div>
     </div>
     <script src="js/api.js"></script>
     <script src="js/cliente.js"></script>
