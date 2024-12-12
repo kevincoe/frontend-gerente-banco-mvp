@@ -8,10 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const produtosSelect = document.getElementById('produtos');
     const addClienteButton = document.getElementById('add-cliente');
     const clientesList = document.getElementById('clientes-list');
+    const pesquisaResultados = document.getElementById('pesquisa-resultados');
     const menuInicial = document.getElementById('menu-inicial');
     const clienteForm = document.getElementById('cliente-form');
     const listarClientesButton = document.getElementById('listar-clientes');
     const adicionarClienteButton = document.getElementById('adicionar-cliente');
+    const pesquisarClienteButton = document.getElementById('pesquisar-cliente');
+    const pesquisaInput = document.getElementById('pesquisa-input');
     const voltarButton = document.getElementById('voltar');
 
     let clienteEditando = null;
@@ -66,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuInicial.style.display = 'flex';
         clienteForm.style.display = 'none';
         clientesList.style.display = 'none';
+        pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'none';
     };
 
@@ -73,8 +77,56 @@ document.addEventListener('DOMContentLoaded', () => {
         menuInicial.style.display = 'none';
         clienteForm.style.display = 'none';
         clientesList.style.display = 'block';
+        pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
         renderClientes();
+    };
+
+    const pesquisarCliente = async () => {
+        const termo = pesquisaInput.value.trim().toLowerCase();
+        const tooltipText = document.getElementById('tooltip-text');
+    
+        if (!termo) {
+            tooltipText.style.visibility = 'visible';
+            tooltipText.style.opacity = '1';
+            setTimeout(() => {
+                tooltipText.style.visibility = 'hidden';
+                tooltipText.style.opacity = '0';
+            }, 3000);
+            return;
+        }
+    
+        const clientes = await clienteService.listarClientes();
+        const resultados = clientes.filter(cliente => 
+            cliente.nome.toLowerCase().includes(termo) || 
+            cliente.conta.toString().includes(termo)
+        );
+    
+        pesquisaResultados.innerHTML = '';
+        if (resultados.length === 0) {
+            pesquisaResultados.innerHTML = '<p>Cliente Não Encontrado</p>';
+        } else {
+            resultados.forEach(cliente => {
+                const clienteItem = document.createElement('div');
+                clienteItem.className = 'cliente-item';
+                clienteItem.innerHTML = `
+                    <p><strong>Nome:</strong> ${cliente.nome}</p>
+                    <p><strong>Agência:</strong> ${cliente.agencia}</p>
+                    <p><strong>Conta:</strong> ${cliente.conta}</p>
+                    <p><strong>Nível:</strong> ${cliente.nivel}</p>
+                    <p><strong>Produtos:</strong> ${cliente.produtos}</p>
+                    <button class="edit" onclick="editarCliente(${cliente.id})">Editar</button>
+                    <button onclick="removerCliente(${cliente.id})">Remover</button>
+                `;
+                pesquisaResultados.appendChild(clienteItem);
+            });
+        }
+    
+        menuInicial.style.display = 'none';
+        clienteForm.style.display = 'none';
+        clientesList.style.display = 'none';
+        pesquisaResultados.style.display = 'block';
+        voltarButton.style.display = 'block';
     };
 
     window.removerCliente = async (id) => {
@@ -94,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuInicial.style.display = 'none';
         clienteForm.style.display = 'flex';
         clientesList.style.display = 'none';
+        pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
     };
 
@@ -105,8 +158,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuInicial.style.display = 'none';
         clienteForm.style.display = 'flex';
         clientesList.style.display = 'none';
+        pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
     });
+
+    pesquisarClienteButton.addEventListener('click', pesquisarCliente);
 
     voltarButton.addEventListener('click', () => {
         mostrarTelaInicial();

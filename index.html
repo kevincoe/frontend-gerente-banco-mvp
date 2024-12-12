@@ -8,12 +8,23 @@
 </head>
 <body>
     <div id="app">
+        <img src="img/smart-bank.png" alt="Banner do Banco" style="width: 100%; height: auto;">
         <button id="voltar" style="display: none;">Voltar</button>
         <h1>Gerenciamento de Clientes</h1>
         <div id="menu-inicial">
             <button id="listar-clientes">Listar Clientes</button>
             <button id="adicionar-cliente">Adicionar Cliente</button>
         </div>
+        
+        <div id="menu-pesquisa">
+            <div id="menu-pesquisa" class="tooltip">
+                <input type="text" id="pesquisa-input" placeholder="Nome ou Conta">
+                <span class="tooltiptext" id="tooltip-text">Por favor, digite um nome ou número de conta para pesquisar.</span>
+            <button id="pesquisar-cliente">Pesquisar Cliente</button>
+        </div>            
+
+        </div>
+
         <div id="cliente-form" style="display: none;">
             <input type="text" id="nome" placeholder="Nome">
             <input type="number" id="agencia" placeholder="Agência">
@@ -38,6 +49,7 @@
             <button id="add-cliente">Adicionar Cliente</button>
         </div>
         <div id="clientes-list" style="display: none;"></div>
+        <div id="pesquisa-resultados" style="display: none;"></div>
     </div>
     <script src="js/api.js"></script>
     <script src="js/cliente.js"></script>
