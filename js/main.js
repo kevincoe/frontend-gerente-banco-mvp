@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pesquisarClienteButton = document.getElementById('pesquisar-cliente');
     const pesquisaInput = document.getElementById('pesquisa-input');
     const voltarButton = document.getElementById('voltar');
+    const menuPesquisa = document.getElementById('menu-pesquisa');
 
     let clienteEditando = null;
 
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clientesList.style.display = 'none';
         pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'none';
+        menuPesquisa.style.display = 'flex';
     };
 
     const mostrarListaClientes = () => {
@@ -79,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clientesList.style.display = 'block';
         pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
+        menuPesquisa.style.display = 'flex';
         renderClientes();
     };
 
@@ -127,11 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
         clientesList.style.display = 'none';
         pesquisaResultados.style.display = 'block';
         voltarButton.style.display = 'block';
+        menuPesquisa.style.display = 'none';
     };
 
     window.removerCliente = async (id) => {
-        await clienteService.removerCliente(id);
-        renderClientes();
+        const confirmacao = confirm("Você tem certeza que deseja remover este cliente?");
+        if (confirmacao) {
+            await clienteService.removerCliente(id);
+            renderClientes();
+        }
     };
 
     window.editarCliente = async (id) => {
@@ -148,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clientesList.style.display = 'none';
         pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
+        menuPesquisa.style.display = 'none';
     };
 
     addClienteButton.addEventListener('click', adicionarCliente);
@@ -160,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clientesList.style.display = 'none';
         pesquisaResultados.style.display = 'none';
         voltarButton.style.display = 'block';
+        menuPesquisa.style.display = 'none';
     });
 
     pesquisarClienteButton.addEventListener('click', pesquisarCliente);
