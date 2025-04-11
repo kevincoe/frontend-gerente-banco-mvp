@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concierge de Investimentos - Smart Bank</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/concierge.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="img/smart-bank.png" alt="Smart Bank Logo" style="width: 100%; height: auto;">
+            <h1>Concierge de Investimentos</h1>
+            <p>Gerencie os investimentos de seus clientes de forma simples e eficiente</p>
+        </header>
+        
+        <div class="panel">
+            <h2>Selecione um Cliente</h2>
+            <select id="client-selector">
+                <option value="">-- Escolha um cliente --</option>
+                <!-- Opções serão preenchidas via JavaScript -->
+            </select>
+            <button id="load-client">Carregar Cliente</button>
+        </div>
+        
+        <div id="client-dashboard" style="display: none;">
+            <div class="client-info panel">
+                <div class="client-avatar" id="client-initials"></div>
+                <div>
+                    <h2 id="client-name">Nome do Cliente</h2>
+                    <p>
+                        Agência: <strong id="client-agency"></strong> | 
+                        Conta: <strong id="client-account"></strong>
+                        <span id="client-level" class="nivel-badge"></span>
+                    </p>
+                    <p>Saldo em conta: <strong id="client-balance">R$ 0,00</strong></p>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="panel">
+                    <h3>Comprar Ações</h3>
+                    <div class="investment-form">
+                        <label for="stock-symbol">Símbolo da Ação</label>
+                        <input type="text" id="stock-symbol" placeholder="Ex: PETR4, VALE3, ITUB4">
+                        
+                        <label for="stock-quantity">Quantidade</label>
+                        <input type="number" id="stock-quantity" min="1" step="1" placeholder="Quantidade de ações">
+                        
+                        <button id="buy-stock">Comprar Ações</button>
+                        <div id="stock-success" class="success-message">Compra realizada com sucesso!</div>
+                        <div id="stock-error" class="error-message"></div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h3>Comprar Dólares</h3>
+                    <div class="investment-form">
+                        <label for="dollar-quantity">Quantidade</label>
+                        <input type="number" id="dollar-quantity" min="1" step="1" placeholder="Quantidade de dólares">
+                        
+                        <button id="buy-dollar">Comprar Dólares</button>
+                        <div id="dollar-success" class="success-message">Compra realizada com sucesso!</div>
+                        <div id="dollar-error" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel portfolio">
+                <h3>Carteira de Investimentos</h3>
+                <p>Valor total da carteira: <strong id="portfolio-value">Carregando...</strong></p>
+                
+                <div id="portfolio-items">
+                    <!-- Itens da carteira serão preenchidos via JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <a href="index.html" class="btn">Voltar para Gerenciamento de Clientes</a>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/investimentos.js"></script>
+</body>
+</html>

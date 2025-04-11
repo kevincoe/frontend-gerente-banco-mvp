@@ -15,6 +15,11 @@
             <button id="listar-clientes">Listar Clientes</button>
             <button id="adicionar-cliente">Adicionar Cliente</button>
         </div>
+
+        <!-- Adicione este botão em uma posição apropriada no seu menu inicial -->
+        <button id="concierge-button" onclick="window.location.href='concierge.html'" class="menu-button">
+            Concierge de Investimentos
+        </button>
         
         <div id="menu-pesquisa" class="tooltip">
             <input type="text" id="pesquisa-input" placeholder="Nome ou Conta">
@@ -22,10 +27,18 @@
             <button id="pesquisar-cliente">Pesquisar Cliente</button>
         </div>
 
+        <!-- Formulário de Cliente -->
         <div id="cliente-form" style="display: none;">
+            <label for="nome">Nome</label>
             <input type="text" id="nome" placeholder="Nome">
-            <input type="number" id="agencia" placeholder="Agência">
-            <input type="number" id="conta" placeholder="Conta">
+            <label for="agencia">Agência</label>
+            <input type="text" id="agencia" placeholder="Agência">
+            <label for="conta">Conta</label>
+            <input type="text" id="conta" placeholder="Conta">
+            
+            <!-- Campo de Saldo -->
+            <label for="saldo">Saldo</label>
+            <input type="number" id="saldo" placeholder="Saldo" step="0.01">
 
             <label for="nivel">Nível</label>
             <select id="nivel">
@@ -45,8 +58,35 @@
 
             <button id="add-cliente">Adicionar Cliente</button>
         </div>
+        
+        <!-- Lista de Clientes -->
         <div id="clientes-list" style="display: none;"></div>
         <div id="pesquisa-resultados" style="display: none;"></div>
+        
+        <!-- SEÇÃO DE INVESTIMENTOS -->
+        <div id="investimentos-section" style="display: none;">
+            <h2>Investimentos do Cliente</h2>
+            <div id="carteira-valor">
+                <strong>Valor da Carteira:</strong> <span id="valor-carteira">R$ 0.00</span>
+            </div>
+            
+            <div id="lista-investimentos">
+                <!-- Os investimentos serão inseridos aqui dinamicamente -->
+            </div>
+            
+            <h3>Comprar Ações</h3>
+            <div id="comprar-acoes-form">
+                <input type="text" id="simbolo-acao" placeholder="Símbolo (ex: PETR4)">
+                <input type="number" id="quantidade-acao" placeholder="Quantidade" step="1">
+                <button id="comprar-acao-btn">Comprar Ações</button>
+            </div>
+            
+            <h3>Comprar Dólares</h3>
+            <div id="comprar-dolar-form">
+                <input type="number" id="quantidade-dolar" placeholder="Quantidade" step="0.01">
+                <button id="comprar-dolar-btn">Comprar Dólares</button>
+            </div>
+        </div>
     </div>
     <script src="js/api.js"></script>
     <script src="js/cliente.js"></script>

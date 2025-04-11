@@ -1,0 +1,127 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.panel {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 24px;
+    color: #666;
+}
+
+.nivel-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+.nivel-Bronze { background-color: #CD7F32; }
+.nivel-Prata { background-color: #C0C0C0; }
+.nivel-Ouro { background-color: #FFD700; color: #333; }
+.nivel-Diamante { background-color: #B9F2FF; color: #333; }
+
+.investment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.investment-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.investment-form input, .investment-form select {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.investment-form button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.investment-form button:hover {
+    background-color: #3e8e41;
+}
+
+.portfolio {
+    margin-top: 20px;
+}
+
+.portfolio-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.success-message {
+    color: #4CAF50;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: none;
+}
+
+.error-message {
+    color: #f44336;
+    padding: 10px;
+    background-color: #ffebee;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #5a6268;
+    text-decoration: none;
+    color: white;
+}
